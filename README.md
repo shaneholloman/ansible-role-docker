@@ -1,6 +1,6 @@
 # Ansible Role: Docker
 
-[![CI](https://github.com/shaneholloman-org/ansible-role-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/shaneholloman-org/ansible-role-docker/actions/workflows/ci.yml)
+[![CI](https://github.com/shaneholloman/ansible-role-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/shaneholloman/ansible-role-docker/actions/workflows/ci.yml)
 
 An Ansible Role that installs [Docker](https://www.docker.com) on Linux.
 
@@ -20,8 +20,8 @@ Available variables are listed below, along with default values (see `defaults/m
         - "docker-{{ docker_edition }}-rootless-extras"
     docker_packages_state: present
 
-The `docker_edition` should be either `ce` (Community Edition) or `ee` (Enterprise Edition). 
-You can also specify a specific version of Docker to install using the distribution-specific format: 
+The `docker_edition` should be either `ce` (Community Edition) or `ee` (Enterprise Edition).
+You can also specify a specific version of Docker to install using the distribution-specific format:
 Red Hat/CentOS: `docker-{{ docker_edition }}-<VERSION>` (Note: you have to add this to all packages);
 Debian/Ubuntu: `docker-{{ docker_edition }}=<VERSION>` (Note: you have to add this to all packages).
 
@@ -129,5 +129,4 @@ The above sponsor(s) are supporting Jeff Geerling on [GitHub Sponsors](https://g
 
 ## Author Information
 
-This role was created in 2017 by [Jeff Geerling](https://www.shaneholloman.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com/).
-
+This role was created in 2023
