@@ -44,11 +44,18 @@
   when: add_repository_key is failed and docker_add_repo | bool
 
 - name: Add Docker apt key (alternative for older systems without SNI).
-  ansible.builtin.shell: >
-    curl -sSL {{ docker_apt_gpg_key }} | apt-key add -
+  ansible.builtin.uri:
+    url: "{{ docker_apt_gpg_key }}"
+    method: GET
+    return_content: true
+  register: result
   when: add_repository_key is failed and docker_add_repo | bool
+  notify: Add key
 
-- name: Add Docker repository.
+- name: Run handlers if necessary
+  ansible.builtin.meta: flush_handlers
+
+- name: Add Docker registry
   ansible.builtin.apt_repository:
     repo: "{{ docker_apt_repository }}"
     state: present
