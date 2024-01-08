@@ -42,12 +42,9 @@ jobs:
     strategy:
       matrix:
         distro:
-          - rockylinux8
+          - rockylinux9
           - ubuntu2204
-          - ubuntu2004
           - debian12
-          - debian11
-          - debian10
           - fedora38
 
     steps:
