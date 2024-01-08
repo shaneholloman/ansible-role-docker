@@ -9,13 +9,13 @@
 
 - name: Add Docker GPG key.
   ansible.builtin.rpm_key:
-    key: "{{ docker_yum_gpg_key }}"
+    key: "{{ docker_dnf_gpg_key }}"
     state: present
   when: docker_add_repo | bool
 
 - name: Add Docker repository.
   ansible.builtin.get_url:
-    url: "{{ docker_yum_repo_url }}"
+    url: "{{ docker_dnf_repo_url }}"
     dest: '/etc/yum.repos.d/docker-{{ docker_edition }}.repo'
     owner: root
     group: root
@@ -27,7 +27,7 @@
     dest: '/etc/yum.repos.d/docker-{{ docker_edition }}.repo'
     section: 'docker-{{ docker_edition }}-nightly'
     option: enabled
-    value: '{{ docker_yum_repo_enable_nightly }}'
+    value: '{{ docker_dnf_repo_enable_nightly }}'
     mode: '0644'
     no_extra_spaces: true
   when: docker_add_repo | bool
@@ -37,7 +37,7 @@
     dest: '/etc/yum.repos.d/docker-{{ docker_edition }}.repo'
     section: 'docker-{{ docker_edition }}-test'
     option: enabled
-    value: '{{ docker_yum_repo_enable_test }}'
+    value: '{{ docker_dnf_repo_enable_test }}'
     mode: '0644'
     no_extra_spaces: true
   when: docker_add_repo | bool

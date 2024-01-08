@@ -66,15 +66,15 @@ The main Docker repo URL, common between Debian and RHEL systems.
 You can change `docker_apt_gpg_key` to a different url if you are behind a firewall or provide a trustworthy mirror.
 Usually in combination with changing `docker_apt_repository` as well.
 
-    docker_yum_repo_url: "{{ docker_repo_url }}/{{ (ansible_distribution == 'Fedora') | ternary('fedora','centos') }}/docker-{{ docker_edition }}.repo"docker_edition }}.repo
-    docker_yum_repo_enable_nightly: '0'
-    docker_yum_repo_enable_test: '0'
-    docker_yum_gpg_key: "{{ docker_repo_url }}/centos/gpg"
+    docker_dnf_repo_url: "{{ docker_repo_url }}/{{ (ansible_distribution == 'Fedora') | ternary('fedora','centos') }}/docker-{{ docker_edition }}.repo"docker_edition }}.repo
+    docker_dnf_repo_enable_nightly: '0'
+    docker_dnf_repo_enable_test: '0'
+    docker_dnf_gpg_key: "{{ docker_repo_url }}/centos/gpg"
 
 (Used only for RedHat/CentOS.) You can enable the Nightly or Test repo by setting the respective vars to `1`.
 
-You can change `docker_yum_gpg_key` to a different url if you are behind a firewall or provide a trustworthy mirror.
-Usually in combination with changing `docker_yum_repository` as well.
+You can change `docker_dnf_gpg_key` to a different url if you are behind a firewall or provide a trustworthy mirror.
+Usually in combination with changing `docker_dnf_repository` as well.
 
     docker_users:
       - user1
