@@ -11,11 +11,11 @@
         - 'vars'
 
 - name: Include setup tasks for RedHat
-  ansible.builtin.include_tasks: setup-RedHat.yml
+  ansible.builtin.include_tasks: setup-redhat.yml
   when: ansible_os_family == 'RedHat'
 
 - name: Include setup tasks for Debian
-  ansible.builtin.include_tasks: setup-Debian.yml
+  ansible.builtin.include_tasks: setup-debian.yml
   when: ansible_os_family == 'Debian'
 
 - name: Install Docker packages.
