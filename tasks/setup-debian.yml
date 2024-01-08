@@ -26,13 +26,10 @@
     state: present
   when: ansible_distribution == 'Ubuntu' and ansible_distribution_version is version('20.04', '>=')
 
-- name: Add Docker apt key.
-  ansible.builtin.get_url:
+- name: Add Docker APT key.
+  ansible.builtin.apt_key:
     url: "{{ docker_apt_gpg_key }}"
-    dest: /etc/apt/trusted.gpg.d/docker.asc
-    mode: '0644'
-    force: false
-    checksum: "{{ docker_apt_gpg_key_checksum | default(omit) }}"
+    state: present
   register: add_repository_key
   ignore_errors: "{{ docker_apt_ignore_key_error }}"
   when: docker_add_repo | bool
