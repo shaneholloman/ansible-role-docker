@@ -1,13 +1,12 @@
 ---
-dependencies: []
-
 galaxy_info:
   role_name: docker
   author: shaneholloman
   description: Docker for Linux.
   company: "shaneholloman"
-  license: "license (BSD, MIT)"
-  min_ansible_version: "2.10"
+  license: "license (Unlicense)"
+  min_ansible_version: "2.12"
+
   platforms:
     - name: Fedora
       versions:
@@ -28,6 +27,7 @@ galaxy_info:
     - name: ArchLinux
       versions:
         - all
+
   galaxy_tags:
     - web
     - system
@@ -36,3 +36,5 @@ galaxy_info:
     - orchestration
     - compose
     - server
+
+dependencies: []
